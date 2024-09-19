@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Healthcare BDN Chart (Vertical Resizer with Description)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js"></script>
+    <style>
+        body, html { height: 100%; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        .container { display: flex; width: 100%; height: 100%; overflow: hidden; }
+        #chart { flex: 1; min-width: 0; overflow: auto; }
+        #resizer { width: 10px; background: #ccc; cursor: col-resize; }
+        #info { width: 300px; background-color: #f0f0f0; padding: 10px; overflow-y: auto; }
+        .mermaid { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="chart">
+            <pre class="mermaid">
+            graph LR
+                subgraph IT_Enablers[IT Enablers]
+                    E1[Open-source EHR system]
+                    E2[Clinical decision support tools]
+                    E3[Patient portal]
+                    E4[Health information exchange]
+                    E5[Analytics platform]
+                end
+
+                subgraph Enabling_Changes[Enabling Changes]
+                    D1[Implement standardized clinical forms]
+                    D2[Train staff on new systems]
+                    D3[Establish data governance policies]
+                    D4[Develop interoperability protocols]
+                    D5[Create clinical pathways]
+                end
+
+                subgraph Business_Changes[Business Changes]
+                    C1[Standardized clinical documentation]
+                    C2[Evidence-based practice adoption]
+                    C3[Enhanced care coordination]
+                    C4[Improved clinical decision-making]
+                    C5[Increased patient engagement]
+                    C6[Real-time quality monitoring]
+                end
+
+                subgraph Business_Benefits[Business Benefits]
+                    B1[Reduced medical errors]
+                    B2[Decreased treatment variations]
+                    B3[Improved care continuity]
+                    B4[Enhanced operational efficiency]
+                    B5[Increased patient satisfaction]
+                end
+
+                subgraph Business_Objective[Business Objective]
+                    A1[Improved patient experience]
+                    A2[Better clinical outcomes]
+                end
+
+                %% Connections between categories
+                IT_Enablers --> Enabling_Changes
+                Enabling_Changes --> Business_Changes
+                Business_Changes --> Business_Benefits
+                Business_Benefits --> Business_Objective
+
+                %% IT Enablers to Enabling Changes
+                E1 --> D1
+                E1 --> D2
+                E2 --> D5
+                E3 --> D2
+                E4 --> D4
+                E5 --> D3
+
+                %% Enabling Changes to Business Changes
+                D1 --> C1
+                D2 --> C2
+                D3 --> C6
+                D4 --> C3
+                D5 --> C4
+
+                %% Business Changes to Business Benefits
+                C1 --> B1
+                C1 --> B2
+                C2 --> B2
+                C3 --> B3
+                C4 --> B1
+                C4 --> B2
+                C5 --> B5
+                C6 --> B4
+
+                %% Business Benefits to Business Objective
+                B1 --> A2
+                B2 --> A2
+                B3 --> A1
+                B3 --> A2
+                B4 --> A1
+                B5 --> A1
+            </pre>
+        </div>
+        <div id="resizer"></div>
+        <div id="info">
+            <h3>Healthcare BDN Chart</h3>
+            <p>Click on a node in the chart to view its description here.</p>
+        </div>
+    </div>
+
+    <script>
+        const narratives = {
+            "E1": { "title": "Open-source EHR system", "description": "An electronic health record system based on open standards, allowing for customization and interoperability." },
+            "E2": { "title": "Clinical decision support tools", "description": "Software that provides clinicians with knowledge and person-specific information to enhance decision-making in patient care." },
+            "E3": { "title": "Patient portal", "description": "A secure online website that gives patients convenient 24-hour access to personal health information." },
+            "E4": { "title": "Health information exchange", "description": "The electronic movement of health-related information among organizations according to nationally recognized standards." },
+            "E5": { "title": "Analytics platform", "description": "A system that collects and analyzes health data to provide insights for improving patient care and operational efficiency." },
+            "D1": { "title": "Implement standardized clinical forms", "description": "Develop and deploy uniform clinical documentation forms across the healthcare system to ensure consistency in data collection." },
+            "D2": { "title": "Train staff on new systems", "description": "Provide comprehensive training to healthcare staff on the use of new IT systems and standardized forms." },
+            "D3": { "title": "Establish data governance policies", "description": "Create and implement policies for managing data quality, security, and usage throughout the organization." },
+            "D4": { "title": "Develop interoperability protocols", "description": "Establish standards and protocols for seamless data exchange between different healthcare IT systems." },
+            "D5": { "title": "Create clinical pathways", "description": "Develop standardized, evidence-based care plans for specific conditions to guide clinical decision-making." },
+            "C1": { "title": "Standardized clinical documentation", "description": "Consistent and structured recording of patient information across all departments and care settings." },
+            "C2": { "title": "Evidence-based practice adoption", "description": "Increased use of clinical practices that are based on the best available scientific evidence." },
+            "C3": { "title": "Enhanced care coordination", "description": "Improved communication and collaboration among healthcare providers involved in a patient's care." },
+            "C4": { "title": "Improved clinical decision-making", "description": "More informed and timely clinical decisions based on comprehensive patient data and evidence-based guidelines." },
+            "C5": { "title": "Increased patient engagement", "description": "Greater involvement of patients in their own healthcare through access to information and communication tools." },
+            "C6": { "title": "Real-time quality monitoring", "description": "Continuous assessment of care quality indicators to identify and address issues promptly." },
+            "B1": { "title": "Reduced medical errors", "description": "Fewer mistakes in diagnosis, treatment, and medication due to improved information and decision support." },
+            "B2": { "title": "Decreased treatment variations", "description": "More consistent application of best practices, reducing unwarranted variations in care." },
+            "B3": { "title": "Improved care continuity", "description": "Smoother transitions between different care settings and providers, ensuring consistent and coordinated care." },
+            "B4": { "title": "Enhanced operational efficiency", "description": "Streamlined processes and reduced waste, leading to more efficient use of resources." },
+            "B5": { "title": "Increased patient satisfaction", "description": "Higher levels of patient contentment with their care experience and outcomes." },
+            "A1": { "title": "Improved patient experience", "description": "Enhanced overall quality of patient interactions with the healthcare system, including comfort, communication, and convenience." },
+            "A2": { "title": "Better clinical outcomes", "description": "Improved health results for patients, including higher recovery rates, fewer complications, and better management of chronic conditions." }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({ startOnLoad: true });
+
+            const chart = document.getElementById('chart');
+            const info = document.getElementById('info');
+            const resizer = document.getElementById('resizer');
+
+            let isResizing = false;
+
+            resizer.addEventListener('mousedown', function(e) {
+                isResizing = true;
+                document.addEventListener('mousemove', resize);
+                document.addEventListener('mouseup', stopResize);
+            });
+
+            function resize(e) {
+                if (isResizing) {
+                    const containerWidth = document.querySelector('.container').offsetWidth;
+                    const newChartWidth = e.clientX - chart.offsetLeft;
+                    const newInfoWidth = containerWidth - newChartWidth - resizer.offsetWidth;
+                    
+                    chart.style.width = newChartWidth + 'px';
+                    info.style.width = newInfoWidth + 'px';
+                }
+            }
+
+            function stopResize() {
+                isResizing = false;
+                document.removeEventListener('mousemove', resize);
+            }
+
+            setTimeout(() => {
+                const svg = document.querySelector('#chart svg');
+
+                if (svg) {
+                    svg.style.cursor = 'pointer';
+                    svg.addEventListener('click', function(event) {
+                        const target = event.target.closest('.node');
+                        if (target) {
+                            const nodeId = target.id.split('-')[1];
+                            if (narratives[nodeId]) {
+                                info.innerHTML = `<h3>${narratives[nodeId].title}</h3><p>${narratives[nodeId].description}</p>`;
+                            }
+                        }
+                    });
+
+                    const nodes = svg.querySelectorAll('.node');
+                    nodes.forEach(node => {
+                        const nodeId = node.id.split('-')[1];
+                        if (narratives[nodeId]) {
+                            node.setAttribute('title', narratives[nodeId].title);
+                        }
+                    });
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
