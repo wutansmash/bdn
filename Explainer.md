@@ -32,4 +32,4 @@ This usually demands improving how information is used. Technology can enable an
 **Wataru Example as mermaid/html**
 <br>
 ---
-[link to Wataru's Draft on github](https://wutansmash.git.io/bdn)
+[link to Wataru's Draft on github](https://wutansmash.github.io/bdn)
