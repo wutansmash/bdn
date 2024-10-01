@@ -23,6 +23,7 @@ graph LR
                  E3-->E4
                  E4-->E5
                  E4-->E6
+                 
                %% E2-->|copy|E3
 
                 end
@@ -44,10 +45,11 @@ graph LR
                 subgraph Business_Changes[Business Changes]
                     C1[Standardised clinical record/summary]
                     C2[Evidence-based practice adoption]
-                    C3[Enhanced care coordination]
+                    
                     C4[Improved clinical decision-making]
                     C5[Modernised patient engagement]
                     C7[More Transparent healthcare IT ecosystem]
+                    C3[Enhanced care coordination]
                 
                 end
 
@@ -87,6 +89,8 @@ graph LR
                 C4 --> B2
                 C5 --> B5
                 C7 --> B6
+                C1-->B4
+              C7-->B4
 
                 %% Business Benefits to Business Objective
                 B1 --> A2
@@ -96,6 +100,8 @@ graph LR
                 B4 --> A3
                 B5 --> A1
                 B6 --> A3
+
+                
 
 
 ```
