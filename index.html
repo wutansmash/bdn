@@ -19,35 +19,54 @@
         <div id="chart">
             <pre class="mermaid">
             graph LR
+                   %% Connections between categories
+                IT_Enablers --> Enabling_Changes --> Business_Changes --> Business_Benefits --> Business_Objective
+
                 subgraph IT_Enablers[IT Enablers]
-                    E1[Open-source EHR system]
-                    E2[Clinical decision support tools]
-                    E3[Patient portal]
-                    E4[Health information exchange]
-                    E5[Analytics platform]
-                    E6[Open API standards]
+                direction TB
+                    E00[Machine readable assets]
+                    E0[Open-source Code Repository]
+                    E1[Open-source Forms Library]
+                    E2[Proprietary EHR record storage]
+                    E3[Open-source EHR record storage]
+                    E4[Record Locator - Health information exchange]
+                    E5[Analytics platform summary view of record]
+                    E6[Patient platform to view+update]
+                
+                 E00-->E0
+                 E0-->E1
+                 E1-->E2
+                 E1-->E3
+                 E2-->E4
+                 E3-->E4
+                 E4-->E5
+                 E4-->E6
+               %% E2-->|copy|E3
+
                 end
 
                 subgraph Enabling_Changes[Enabling Changes]
-                    D1[Implement standardized clinical forms]
-                    D2[Train staff on new systems]
-                    D3[Establish data governance policies]
-                    D4[Develop interoperability protocols]
-                    D5[Create clinical pathways]
-                    D6[Adopt open source practices]
-                    D7[Enact open standards legislation]
-                    D8[Implement open source mandate]
-                    D9[Enforce data interoperability laws]
+                    direction TB
+                    
+                    D1[Implement standardised EHR forms]
+                    D2[Develop interoperability protocols]
+                    D4[Train staff on new systems]
+                    D5[Create clinical guideline support tools]
+                    D6[Implement open source legislation/mandate]
+                    D7[Enforce data interoperability standards]
+    
+                   
+
                 end
 
                 subgraph Business_Changes[Business Changes]
-                    C1[Standardized clinical documentation]
+                    C1[Standardised clinical record/summary]
                     C2[Evidence-based practice adoption]
                     C3[Enhanced care coordination]
                     C4[Improved clinical decision-making]
-                    C5[Increased patient engagement]
-                    C6[Real-time quality monitoring]
-                    C7[Transparent healthcare IT ecosystem]
+                    C5[Modernised patient engagement]
+                    C7[More Transparent healthcare IT ecosystem]
+                
                 end
 
                 subgraph Business_Benefits[Business Benefits]
@@ -66,38 +85,30 @@
                 end
 
                 %% Connections from Enabling Changes (including legislative changes)
-                D7 --> E1
-                D7 --> E6
-                D8 --> E1
-                D8 --> D6
-                D9 --> E4
-                D9 --> D4
+              D1-->E1
+              D2-->E4
+               D4-->E5
+               D5-->E00
+              D6-->E0
+              D6-->E3
+              D7-->E4
+              D1-->E00
+              D2-->E00
+               D5-->D4
 
-                %% Connections between categories
-                IT_Enablers --> Enabling_Changes
-                Enabling_Changes --> Business_Changes
-                Business_Changes --> Business_Benefits
-                Business_Benefits --> Business_Objective
-
-                %% IT Enablers to Enabling Changes
-                E1 --> D1
-                E1 --> D2
-                E2 --> D5
-                E3 --> D2
-                E4 --> D4
-                E5 --> D3
-                E6 --> D4
+              C1-->B4
+              C7-->B4
+             
 
                 %% Enabling Changes to Business Changes
                 D1 --> C1
                 D2 --> C2
-                D3 --> C6
                 D4 --> C3
                 D5 --> C4
                 D6 --> C7
                 D7 --> C7
-                D8 --> C7
-                D9 --> C3
+                %%D8 --> C7
+                %%D9 --> C3
 
                 %% Business Changes to Business Benefits
                 C1 --> B1
@@ -107,7 +118,6 @@
                 C4 --> B1
                 C4 --> B2
                 C5 --> B5
-                C6 --> B4
                 C7 --> B6
 
                 %% Business Benefits to Business Objective
@@ -118,7 +128,6 @@
                 B4 --> A3
                 B5 --> A1
                 B6 --> A3
-      
 
             </pre>
         </div>
@@ -131,38 +140,39 @@
 
     <script>
         const narratives = {
-          "E1": { "title": "Open-source EHR system", "description": "An electronic health record system based on open standards, allowing for customization and interoperability." },
-            "E2": { "title": "Clinical decision support tools", "description": "Software that provides clinicians with knowledge and person-specific information to enhance decision-making in patient care." },
-            "E3": { "title": "Patient portal", "description": "A secure online website that gives patients convenient 24-hour access to personal health information." },
-            "E4": { "title": "Health information exchange", "description": "The electronic movement of health-related information among organizations according to nationally recognized standards." },
-            "E5": { "title": "Analytics platform", "description": "A system that collects and analyzes health data to provide insights for improving patient care and operational efficiency." },
-            "E6": { "title": "Open API standards", "description": "Standardized application programming interfaces that allow different healthcare IT systems to communicate and share data seamlessly." },
-            "D1": { "title": "Implement standardized clinical forms", "description": "Develop and deploy uniform clinical documentation forms across the healthcare system to ensure consistency in data collection." },
-            "D2": { "title": "Train staff on new systems", "description": "Provide comprehensive training to healthcare staff on the use of new IT systems and standardized forms." },
-            "D3": { "title": "Establish data governance policies", "description": "Create and implement policies for managing data quality, security, and usage throughout the organization." },
-            "D4": { "title": "Develop interoperability protocols", "description": "Establish standards and protocols for seamless data exchange between different healthcare IT systems." },
-            "D5": { "title": "Create clinical pathways", "description": "Develop standardized, evidence-based care plans for specific conditions to guide clinical decision-making." },
-            "D6": { "title": "Adopt open source practices", "description": "Implement processes for contributing to and benefiting from open source healthcare IT projects." },
-            "D7": { "title": "Enact open standards legislation", "description": "Pass laws mandating the use of open standards in healthcare IT systems to ensure interoperability and prevent vendor lock-in." },
-            "D8": { "title": "Implement open source mandate", "description": "Enact and enforce legislation requiring a certain percentage of healthcare IT systems to be open source, promoting transparency and collaborative improvement." },
-            "D9": { "title": "Enforce data interoperability laws", "description": "Implement and oversee regulations that enforce seamless data exchange between different healthcare systems and institutions." },
-            "C1": { "title": "Standardized clinical documentation", "description": "Consistent and structured recording of patient information across all departments and care settings." },
-            "C2": { "title": "Evidence-based practice adoption", "description": "Increased use of clinical practices that are based on the best available scientific evidence." },
-            "C3": { "title": "Enhanced care coordination", "description": "Improved communication and collaboration among healthcare providers involved in a patient's care." },
-            "C4": { "title": "Improved clinical decision-making", "description": "More informed and timely clinical decisions based on comprehensive patient data and evidence-based guidelines." },
-            "C5": { "title": "Increased patient engagement", "description": "Greater involvement of patients in their own healthcare through access to information and communication tools." },
-            "C6": { "title": "Real-time quality monitoring", "description": "Continuous assessment of care quality indicators to identify and address issues promptly." },
-            "C7": { "title": "Transparent healthcare IT ecosystem", "description": "An open and collaborative environment for healthcare IT development, fostering innovation and rapid improvement." },
-            "B1": { "title": "Reduced medical errors", "description": "Fewer mistakes in diagnosis, treatment, and medication due to improved information and decision support." },
-            "B2": { "title": "Decreased treatment variations", "description": "More consistent application of best practices, reducing unwarranted variations in care." },
-            "B3": { "title": "Improved care continuity", "description": "Smoother transitions between different care settings and providers, ensuring consistent and coordinated care." },
-            "B4": { "title": "Enhanced operational efficiency", "description": "Streamlined processes and reduced waste, leading to more efficient use of resources." },
-            "B5": { "title": "Increased patient satisfaction", "description": "Higher levels of patient contentment with their care experience and outcomes." },
-            "B6": { "title": "Accelerated innovation", "description": "Faster development and adoption of new healthcare IT solutions due to open collaboration and shared resources." },
-            "A1": { "title": "Improved patient experience", "description": "Enhanced overall quality of patient interactions with the healthcare system, including comfort, communication, and convenience." },
-            "A2": { "title": "Better clinical outcomes", "description": "Improved health results for patients, including higher recovery rates, fewer complications, and better management of chronic conditions." },
-            "A3": { "title": "Cost-effective healthcare delivery", "description": "Optimized use of resources leading to reduced healthcare costs while maintaining or improving quality of care." }
-          };
+    "A1": { "title": "Improved patient experience", "description": "Enhanced overall quality of patient interactions with the healthcare system, including comfort, communication, and convenience." },
+    "A2": { "title": "Better clinical outcomes", "description": "Improved health results for patients, including higher recovery rates, fewer complications, and better management of chronic conditions." },
+    "A3": { "title": "Cost-effective healthcare delivery", "description": "Optimized use of resources leading to reduced healthcare costs while maintaining or improving quality of care." }
+    "B1": { "title": "Reduced medical errors", "description": "Fewer mistakes in diagnosis, treatment, and medication due to improved information and decision support." },
+    "B2": { "title": "Decreased treatment variations", "description": "More consistent application of best practices, reducing unwarranted variations in care." },
+    "B3": { "title": "Improved care continuity", "description": "Smoother transitions between different care settings and providers, ensuring consistent and coordinated care." },
+    "B4": { "title": "Enhanced operational efficiency", "description": "Streamlined processes and reduced waste, leading to more efficient use of resources." },
+    "B5": { "title": "Increased patient satisfaction", "description": "Higher levels of patient contentment with their care experience and outcomes." },
+    "B6": { "title": "Accelerated innovation", "description": "Faster development and adoption of new healthcare IT solutions due to open collaboration and shared resources." }
+     "C1": { "title": "Standardized clinical documentation", "description": "Consistent and structured recording of patient information across all departments and care settings." },
+    "C2": { "title": "Evidence-based practice adoption", "description": "Increased use of clinical practices that are based on the best available scientific evidence." },
+    "C3": { "title": "Enhanced care coordination", "description": "Improved communication and collaboration among healthcare providers involved in a patient's care." },
+    "C4": { "title": "Improved clinical decision-making", "description": "More informed and timely clinical decisions based on comprehensive patient data and evidence-based guidelines." },
+    "C5": { "title": "Increased patient engagement", "description": "Greater involvement of patients in their own healthcare through access to information and communication tools." },
+    "C6": { "title": "Real-time quality monitoring", "description": "Continuous assessment of care quality indicators to identify and address issues promptly." },
+    "C7": { "title": "Transparent healthcare IT ecosystem", "description": "An open and collaborative environment for healthcare IT development, fostering innovation and rapid improvement." }
+  "D1": { "title": "Implement standardized clinical forms", "description": "Develop and deploy uniform clinical documentation forms across the healthcare system to ensure consistency in data collection." },
+    "D2": { "title": "Train staff on new systems", "description": "Provide comprehensive training to healthcare staff on the use of new IT systems and standardized forms." },
+    "D4": { "title": "Develop interoperability protocols", "description": "Establish standards and protocols for seamless data exchange between different healthcare IT systems." },
+    "D5": { "title": "Create clinical pathways", "description": "Develop standardized, evidence-based care plans for specific conditions to guide clinical decision-making." },
+    "D6": { "title": "Adopt open source practices", "description": "Implement processes for contributing to and benefiting from open source healthcare IT projects." },
+    "D7": { "title": "Enforce data interoperability standards", "description": "Implement and oversee regulations that enforce seamless data exchange between different healthcare systems and institutions." }
+    "E00": { "title": "Machine readable assets", "description": "Standardized, digital formats of healthcare information that can be processed by computers." },
+    "E0": { "title": "Open-source Code Repository", "description": "A centralized platform for storing, managing, and collaborating on open-source healthcare IT projects." },
+    "E1": { "title": "Open-source EHR system", "description": "An electronic health record system based on open standards, allowing for customization and interoperability." },
+    "E2": { "title": "Clinical decision support tools", "description": "Software that provides clinicians with knowledge and person-specific information to enhance decision-making in patient care." },
+    "E3": { "title": "Patient portal", "description": "A secure online website that gives patients convenient 24-hour access to personal health information." },
+    "E4": { "title": "Health information exchange", "description": "The electronic movement of health-related information among organizations according to nationally recognized standards." },
+    "E5": { "title": "Analytics platform", "description": "A system that collects and analyzes health data to provide insights for improving patient care and operational efficiency." },
+    "E6": { "title": "Open API standards", "description": "Standardized application programming interfaces that allow different healthcare IT systems to communicate and share data seamlessly." }
+  
+        
+        };
 
         document.addEventListener('DOMContentLoaded', function() {
             mermaid.initialize({ startOnLoad: true });
