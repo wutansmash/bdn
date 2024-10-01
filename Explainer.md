@@ -38,3 +38,45 @@
 <br>
 ---
 [link to Wataru's Draft on github](https://wutansmash.github.io/bdn)
+
+
+
+
+Some extra diagrams
+```mermaid
+flowchart 
+    %% Define swimlanes
+    subgraph BDNA[statements]
+     BDN1[We need a ....]
+    
+
+     BDN2[We need to...]
+    
+
+     BDN3[So that we can...]
+    
+
+     BDN4[In order to...]
+     BDN1-->BDN2-->BDN3-->BDN4
+
+
+    end
+
+    %% Define swimlanes
+    subgraph BDNB[Action words]
+     BDN1.1[Thing]
+    
+
+     BDN2.1[Enabling/Business change]
+    
+
+     BDN3.1[Benefit]
+    
+
+     BDN4.1[Driver]
+    
+    BDN1.1-->BDN2.1-->BDN3.1-->BDN4.1
+ end
+
+ BDNA-->BDNB
+```
