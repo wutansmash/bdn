@@ -42,7 +42,7 @@
 
 
 
-Some extra diagrams
+**Some extra diagrams**
 ```mermaid
 flowchart 
     %% Define swimlanes
@@ -78,5 +78,20 @@ flowchart
     BDN1.1-->BDN2.1-->BDN3.1-->BDN4.1
  end
 
- BDNA-->BDNB
+subgraph BDNC[More Statement words]
+     BDNa[If we build a...]
+    
+     BDNb[And carry out...]
+
+     BDNc[We'll be left with...]
+
+     BDNd[And we will be able to...]
+    
+     BDNe[Because we need to...]
+    
+    BDNa-->BDNb-->BDNc-->BDNd-->BDNe
+ end
+
+
+ BDNA-->BDNC-->BDNB
 ```
