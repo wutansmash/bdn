@@ -1,14 +1,14 @@
 # Clinical Data Standards Team Overview
 
 ## Mission
-The Clinical Data Standards team develops and maintains the foundational data infrastructure that enables effective healthcare delivery at the point of care while supporting downstream data utilization. We focus on creating and implementing standards that support clinical documentation, data exchange, and interoperability across healthcare systems.
+The Clinical Data Standards team develops and maintains the foundational data infrastructure that enables effective healthcare delivery at the point of care while supporting downstream data utilisation. We focus on creating and implementing standards that support clinical documentation, data exchange, and interoperability across healthcare systems.
 
 ## Core Responsibilities
 
 ### Standards Development and Implementation
 - OpenEHR archetypes and templates aligned with ISO 11179 principles
 - Healthcare metadata registry standards (ISO 21526 MetaRep)
-- FHIR questionnaire resources and form standardization
+- FHIR questionnaire resources and form standardisation
 - Integration protocols for clinical data exchange
 - Metadata repository governance and maintenance
 
@@ -16,11 +16,11 @@ The Clinical Data Standards team develops and maintains the foundational data in
 - Master data management for clinical entities
 - Healthcare-specific data dictionary development
 - Metadata registry design and implementation
-- Standardized clinical documentation frameworks
+- Standardised clinical documentation frameworks
 - Interoperability protocol development
 
 ### Clinical Support
-- Standardized EHR forms implementation
+- Standardised EHR forms implementation
 - Clinical guideline support tools
 - Evidence-based practice frameworks
 - Care coordination enablement
@@ -42,10 +42,10 @@ The Clinical Data Standards team develops and maintains the foundational data in
 3. **Clinical Liaison**
    - Healthcare provider engagement
    - Requirements gathering
-   - Clinical workflow optimization
+   - Clinical workflow optimisation
 
 ### Key Deliverables
-- Standardized clinical documentation templates
+- Standardised clinical documentation templates
 - Metadata registry frameworks
 - Interoperability specifications
 - Implementation guides
@@ -159,10 +159,10 @@ graph LR
 ## Impact Areas
 
 ### Direct Clinical Care
-- Standardized clinical documentation
+- Standardised clinical documentation
 - Improved clinical decision-making
 - Enhanced care coordination
-- Modernized patient engagement
+- Modernised patient engagement
 
 ### System Benefits
 - Reduced medical errors
@@ -182,7 +182,7 @@ graph LR
 ### Primary Stakeholders
 - Clinical care providers
 - Healthcare IT teams
-- Standards organizations
+- Standards organisations
 - Healthcare administrators
 - Patient advocacy groups
 
@@ -197,13 +197,13 @@ graph LR
 
 ### Technical Infrastructure
 - Open-source code repository development
-- Forms library standardization
+- Forms library standardisation
 - Health information exchange enablement
 - Analytics platform implementation
 - Patient access platform development
 
 ### Process Implementation
-- Standardized EHR form adoption
+- Standardised EHR form adoption
 - Interoperability protocol deployment
 - Clinical guideline tool integration
 - Staff training programs
@@ -223,12 +223,12 @@ graph LR
 ### Foundation Layer
 - **ISO 19583**: Core concepts, terminology, and foundational definitions
 - **ISO 21526 (MetaRep)**: Healthcare-specific extensions and governance requirements
-- **Key Applications**: Terminology standardization, semantic foundations, governance frameworks
+- **Key Applications**: Terminology standardisation, semantic foundations, governance frameworks
 
 ### Exchange Layer
 - **ISO 19586**: Content exchange specifications
   - RDF/XML implementations
-  - API standardization
+  - API standardisation
   - Exchange protocols
 
 ### Metadata Framework (ISO 19763)
@@ -313,7 +313,7 @@ graph LR
 2. **Storage Implementation**
    - EHR system integration
    - Data exchange configuration
-   - Interface standardization
+   - Interface standardisation
 
 3. **Platform Deployment**
    - Analytics system setup
@@ -326,7 +326,7 @@ graph LR
 - Core patterns implementation
 - Basic operations setup
 - Protocol configuration
-- Message format standardization
+- Message format standardisation
 
 #### Modern Exchange Standards
 1. **RESTful Implementation (11179-31)**
@@ -503,8 +503,8 @@ flowchart TB
 | ISO/IEC 11179-7 | Metadata Registry Dataset Registration (MDRDatasets) | Registration of metadata about datasets | Specifies how to register and manage dataset metadata |
 | ISO/IEC 11179-31 | Data Exchange for MDR Metamodel | Modern REST/JSON-based exchange patterns | Defines web-friendly API specifications and JSON schemas for metadata exchange |
 | ISO/IEC 19583 | Concepts and Definitions for Metadata Registries | Foundational concepts and terminology | Establishes core principles and semantic foundations for all metadata registry standards |
-| ISO/IEC 19586 | Content Exchange | RDF and XML vocabularies for metadata exchange | Provides standardized exchange formats and implementation guidelines |
-| ISO/IEC 19763-10 | MTF - Metamodel for Framework Interoperability | Core framework for integrating different metadata frameworks | Enables harmonization and mapping between different metadata frameworks |
+| ISO/IEC 19586 | Content Exchange | RDF and XML vocabularies for metadata exchange | Provides standardised exchange formats and implementation guidelines |
+| ISO/IEC 19763-10 | MTF - Metamodel for Framework Interoperability | Core framework for integrating different metadata frameworks | Enables harmonisation and mapping between different metadata frameworks |
 | ISO/IEC 19763-12 | MFI Information Model Registration | Information model metadata registration | Specifies how to register and manage information model metadata |
 | ISO/IEC 19763-13 | MFI Forms Registration | Form design metadata registration | Defines registration and management of form metadata |
 | ISO/IEC 19763-3 | MFI Process Registration | Process model metadata registration | Specifies registration of process-related metadata |
@@ -524,12 +524,12 @@ flowchart TB
    - ISO/IEC 19586 defines traditional exchange formats
    - ISO/IEC 11179-31 provides modern web-based exchange patterns
 
-4. **Specialized Registration**
+4. **Specialised Registration**
    - ISO/IEC 19763 series provides specific registration frameworks
    - ISO/IEC 11179-7 handles dataset registration
 
 ## Primary Uses:
-- Healthcare data standardization
+- Healthcare data standardisation
 - Clinical research data management
 - Healthcare system interoperability
 - Metadata registry implementation
@@ -543,7 +543,7 @@ flowchart TB
 ISO 19763-10 (MTF) plays a crucial role by:
 1. Providing core definitions for framework interoperability
 2. Enabling integration between different metadata frameworks
-3. Supporting metamodel harmonization
+3. Supporting metamodel harmonisation
 4. Facilitating cross-framework mapping
 5. Defining interoperability patterns between different metadata standards
 
@@ -694,13 +694,13 @@ These exchange standards collectively provide:
 1. **Foundation Development**
    - Machine-readable asset creation
    - Open-source repository establishment 
-   - Forms library standardization
+   - Forms library standardisation
    - EHR storage solutions
    - Health information exchange
    - Analytics/patient platforms
 
 2. **Change Implementation**
-   - Standardized EHR forms
+   - Standardised EHR forms
    - Interoperability protocols
    - Staff training programs
    - Clinical guideline tools
@@ -710,7 +710,7 @@ These exchange standards collectively provide:
 ### Business Impact Chain
 
 #### Direct Changes
-- Standardized clinical records
+- Standardised clinical records
 - Evidence-based practice adoption
 - Enhanced care coordination
 - Improved clinical decisions
@@ -743,9 +743,9 @@ These exchange standards collectively provide:
    - ISO compliance review
    - Metadata registry setup
    - Exchange protocol verification
-   - Form standardization
+   - Form standardisation
 
-### Organizational Readiness
+### Organisational Readiness
 1. **Stakeholder Engagement**
    - Clinical leadership buy-in
    - IT team preparation
@@ -776,7 +776,7 @@ These exchange standards collectively provide:
 ### Outcome Metrics
 1. **Clinical Impact**
    - Care quality indicators
-   - Decision support utilization
+   - Decision support utilisation
    - Documentation completeness
    - Care coordination effectiveness
 
